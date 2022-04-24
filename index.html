@@ -59,6 +59,14 @@
       color: #fff;
     }
 
+    .yellow1 {
+      background: #e6a23c;
+      color: #fff;
+      display: inline-block;
+      line-height: 40px;
+      width: 80px;
+    }
+
     .content {
       position: fixed;
       width: 100%;
@@ -113,79 +121,87 @@
           <tbody>
             <tr>
               <td>上午:8:00-10:00</td>
-              <td>
+              <td class="day01">
                 <span class="purple1">
                   上地中补
                 </span>
               </td>
-              <td class="">
+              <td class="day02">
               </td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class="">
+              <td class="day03"></td>
+              <td class="day04"></td>
+              <td class="day05"></td>
+              <td class="day06">
                 <span class="purple1">
                   上地中补
                 </span>
               </td>
-              <td class="">
+              <td class="day07">
               </td>
             </tr>
             <tr>
               <td>上午:10:00-12:00</td>
-              <td class="">
+              <td class="day01">
               </td>
-              <td class=""></td>
-              <td class="">
+              <td class="day02"></td>
+              <td class="day03">
               </td>
-              <td class="">
+              <td class="day04">
                 <span class="purple1">
                   上地中补
                 </span>
               </td>
-              <td class=""></td>
-              <td class="">
+              <td class="day05"></td>
+              <td class="day06">
               </td>
-              <td class=""></td>
+              <td class="day07"></td>
             </tr>
             <tr>
               <td>下午:1:00-03:00</td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class="">
+              <td class="day01"></td>
+              <td class="day02"></td>
+              <td class="day03">
                 <span class="purple1">
                   上地中补
                 </span>
               </td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class="">
+              <td class="day04"></td>
+              <td class="day05"></td>
+              <td class="day06">
               </td>
-              <td class=""></td>
+              <td class="day07"></td>
             </tr>
             <tr>
               <td>下午:5:00-7:00</td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class="defalut">模考休息</td>
-              <td class=""></td>
+              <td class="day01"></td>
+              <td class="day02"></td>
+              <td class="day03"></td>
+              <td class="day04"></td>
+              <td class="day05"></td>
+              <td class="day06 defalut">模考休息</td>
+              <td class="day07">
+                <span class="purple1">
+                  xxx中补
+                </span>
+              </td>
             </tr>
             <tr>
               <td>晚上:8:00-10:00</td>
-              <td class="">
+              <td class="day01">
                 <span class="purple1">
                   上地中补11
                 </span>
               </td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class=""></td>
-              <td class=" yellow">xxx中补</td>
+              <td class="day02"></td>
+              <td class="day03"></td>
+              <td class="day04"></td>
+              <td class="day05"></td>
+              <td class="day06"></td>
+              <td class="day07">
+                <span class="purple1">
+                  xxx中补
+                </span>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -195,13 +211,98 @@
           <span style="color: red;">温馨提示:</span>
         </h3>
         <p style="margin-top: 10px;font-size: 19px;color: #337ab7;">
-          <span
-            style="color:#5cb85c;font-family: Arial, Helvetica, sans-serif;font-weight: 600;">星期一&nbsp;&nbsp;2022年12月20日&nbsp;&nbsp;</span>胡老师有一节课要上，别忘记噢！
+          <span style="color:#5cb85c;font-family: Arial, Helvetica, sans-serif;font-weight: 600;"><span
+              id="xinqiday"></span>&nbsp;&nbsp;<span id="datastr"></span>&nbsp;&nbsp;胡老师有<span id="kc"></span>节课要上，别忘记噢！
         </p>
       </div>
     </div>
   </div>
   <script>
+    function getDateTime(type) {
+      var date = new Date();
+      var hengGang = "-";
+      var maoHao = ":";
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var curDate = date.getDate();
+      var curHours = date.getHours();
+      var curMinutes = date.getMinutes();
+      var curSeconds = date.getSeconds();
+
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      if (curDate >= 0 && curDate <= 9) {
+        curDate = "0" + curDate;
+      }
+      if (curHours >= 0 && curHours <= 9) {
+        curHours = "0" + curHours;
+      }
+      if (curMinutes >= 0 && curMinutes <= 9) {
+        curMinutes = "0" + curMinutes;
+      }
+      if (curSeconds >= 0 && curSeconds <= 9) {
+        curSeconds = "0" + curSeconds;
+      }
+      var currentdate = "";
+      if (type == "year") {
+        currentdate = year;
+        return currentdate;
+      } else if (type == "month") {
+        currentdate = year + hengGang + month;
+        return currentdate;
+      } else {
+        currentdate = year + "年" + month + "月" + curDate + "日";
+        return currentdate;
+      }
+    }
+
+    window.onload = function () {
+      var tempDate = new Date();
+      var days = tempDate.getDay();
+      var week;
+      switch (days) {
+        case 1:
+          week = '星期一';
+          break;
+        case 2:
+          week = '星期二';
+          break;
+        case 3:
+          week = '星期三';
+          break;
+        case 4:
+          week = '星期四';
+          break;
+        case 5:
+          week = '星期五';
+          break;
+        case 6:
+          week = '星期六';
+          break;
+        case 0:
+          week = '星期日';
+          break;
+      }
+      document.getElementById("xinqiday").innerText = week;
+      var datestr = getDateTime('') + "";
+      document.getElementById("datastr").innerText = datestr;
+
+      if (days == 0 || days == "0") {
+        days = 7;
+      }
+
+      var tds = $(".day0" + days + " span");
+      var j = 0;
+      for (var i = 0; i < tds.length; i++) {
+        if (tds[i].innerText != '' && tds[i].innerText.length > 1) {
+          tds[i].setAttribute("class", "yellow1");
+          j += 1;
+        }
+      }
+      document.getElementById("kc").innerText = "" + j;
+    }
+
 
   </script>
 </body>
