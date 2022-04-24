@@ -180,9 +180,7 @@
               <td class="day05"></td>
               <td class="day06 defalut">模考休息</td>
               <td class="day07">
-                <span class="purple1">
-                  xxx中补
-                </span>
+
               </td>
             </tr>
             <tr>
@@ -198,9 +196,7 @@
               <td class="day05"></td>
               <td class="day06"></td>
               <td class="day07">
-                <span class="purple1">
-                  xxx中补
-                </span>
+                <span class="purple1">xx中补</span>
               </td>
             </tr>
           </tbody>
@@ -213,7 +209,10 @@
       </h3>
       <p style="margin-top: 10px;font-size: 19px;color: #337ab7;">
         <span style="color:cadetblue;font-family: Arial, Helvetica, sans-serif;font-weight: 600;"><span
-            id="xinqiday"></span>&nbsp;&nbsp;<span id="datastr"></span>&nbsp;&nbsp;胡老师有<span id="kc"></span>节课要上，别忘记噢！
+            id="xinqiday"></span>&nbsp;&nbsp;
+          <span id="datastr"></span>&nbsp;&nbsp;
+          <span id="nokc">胡老师有<span id="kc"></span>节课要上，别忘记噢！
+            <span>
       </p>
     </div>
   </div>
@@ -301,6 +300,9 @@
         }
       }
       document.getElementById("kc").innerText = "" + j;
+      if (j == 0) {
+        document.getElementById("nokc").innerText = '恭喜胡老师，今天没有课!';
+      }
     }
 
 
