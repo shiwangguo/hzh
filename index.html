@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>胡老师课程表</title>
+  <script src="./jquery.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    td {
+      border-bottom: 1px solid #2E8B57;
+      height: 3em;
+      /* width: 4em; */
+      font-size: 1em;
+      text-align: center;
+    }
+
+    .container {
+      font-size: 15px;
+      width: 100%;
+    }
+
+    .red {
+      background: #d9534f;
+      color: #fff;
+    }
+
+    .purple {
+      background: #337ab7;
+      color: #fff;
+    }
+
+    .purple1 {
+      background: #337ab7;
+      color: #fff;
+      display: inline-block;
+      line-height: 40px;
+      width: 80px;
+    }
+
+    .green {
+      background: #5cb85c;
+      color: #fff;
+    }
+
+    .black {
+      background: #000;
+      color: #fff;
+    }
+
+    .yellow {
+      background: #e6a23c;
+      color: #fff;
+    }
+
+    .content {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      left: 0;
+      top: 0;
+    }
+
+    .content img {
+      width: 100%;
+      height: auto;
+    }
+
+    .tdw {
+      width: 90px;
+
+    }
+
+    .defalut {
+      background: #F0F8FF;
+      color: #2E8B57;
+      font-weight: 600;
+    }
+
+    .td1 {
+      width: 180px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div style="width: 100%;margin-top: 20px;">
+      <div style="margin: auto;width: 900px;">
+        <table cellspacing="0" style="display: block;">
+          <thead>
+            <tr>
+              <td colspan="8"><span style="font-size: 20px;">胡老师私人定制课表</span></td>
+            </tr>
+            <tr>
+              <td class="td1">时间</td>
+              <td class="tdw mon monB">星期一</td>
+              <td class="tdw tue tueB">星期二</td>
+              <td class="tdw wed wedB">星期三</td>
+              <td class="tdw thu thuB">星期四</td>
+              <td class="tdw fri friB">星期五</td>
+              <td class="tdw fri friB">星期六</td>
+              <td class="tdw fri friB">星期日</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>上午:8:00-10:00</td>
+              <td>
+                <span class="purple1">
+                  上地中补
+                </span>
+              </td>
+              <td class="">
+                <span class="purple1">
+                  上地中补
+                </span>
+              </td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+            </tr>
+            <tr>
+              <td>上午:10:00-12:00</td>
+              <td class="">
+                <span class="purple1">
+                  上地中补
+                </span>
+              </td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+            </tr>
+            <tr>
+              <td>下午:1:00-03:00</td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+            </tr>
+            <tr>
+              <td>下午:5:00-7:00</td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class="defalut">xxxx</td>
+              <td class=""></td>
+            </tr>
+            <tr>
+              <td>晚上:8:00-10:00</td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=""></td>
+              <td class=" yellow">xxx中补</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    $('.pop').hide()
+    //获取当前时间高亮显示
+    var str = ''
+    var imageSrc = [
+      'WechatIMG185.jpeg',
+      'WechatIMG186.jpeg',
+      'WechatIMG185.jpeg',
+      'WechatIMG186.jpeg',
+      'WechatIMG185.jpeg',
+      'WechatIMG186.jpeg'
+    ]
+    var week = new Date().getDay()
+    $('.content img').attr('src', imageSrc[week])
+    if (week == 0) {
+    } else if (week == 1) {
+      str = '今天是星期一'
+      $('.mon').css({
+        border: '1px solid pink'
+      })
+      $('.monB').css({
+        background: 'pink'
+      })
+    } else if (week == 2) {
+      str = '今天是星期二'
+      $('.tue').css({
+        border: '1px solid pink'
+      })
+      $('.tueB').css({
+        background: 'pink'
+      })
+    } else if (week == 3) {
+      str = '今天是星期三'
+      $('.wed').css({
+        border: '1px solid pink'
+      })
+      $('.wedB').css({
+        background: 'pink'
+      })
+    } else if (week == 4) {
+      $('.thu').css({
+        border: '1px solid pink'
+      })
+      $('.thuB').css({
+        background: 'pink'
+      })
+      str = '今天是星期四'
+    } else if (week == 5) {
+      str = '今天是星期五'
+      $('.fri').css({
+        border: '1px solid pink'
+      })
+      $('.friB').css({
+        background: 'pink'
+      })
+    } else if (week == 6) {
+      str = '今天是星期六'
+    }
+  </script>
+</body>
+
+</html>
