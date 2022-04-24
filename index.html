@@ -190,66 +190,19 @@
           </tbody>
         </table>
       </div>
+      <div style="width: 100%;text-align: center;margin-top: 30px;">
+        <h3>
+          <span style="color: red;">温馨提示:</span>
+        </h3>
+        <p style="margin-top: 10px;font-size: 19px;color: #337ab7;">
+          <span
+            style="color:#5cb85c;font-family: Arial, Helvetica, sans-serif;font-weight: 600;">星期一&nbsp;&nbsp;2022年12月20日&nbsp;&nbsp;</span>胡老师有一节课要上，别忘记噢！
+        </p>
+      </div>
     </div>
   </div>
   <script>
-    $('.pop').hide()
-    //获取当前时间高亮显示
-    var str = ''
-    var imageSrc = [
-      'WechatIMG185.jpeg',
-      'WechatIMG186.jpeg',
-      'WechatIMG185.jpeg',
-      'WechatIMG186.jpeg',
-      'WechatIMG185.jpeg',
-      'WechatIMG186.jpeg'
-    ]
-    var week = new Date().getDay()
-    $('.content img').attr('src', imageSrc[week])
-    if (week == 0) {
-    } else if (week == 1) {
-      str = '今天是星期一'
-      $('.mon').css({
-        border: '1px solid pink'
-      })
-      $('.monB').css({
-        background: 'pink'
-      })
-    } else if (week == 2) {
-      str = '今天是星期二'
-      $('.tue').css({
-        border: '1px solid pink'
-      })
-      $('.tueB').css({
-        background: 'pink'
-      })
-    } else if (week == 3) {
-      str = '今天是星期三'
-      $('.wed').css({
-        border: '1px solid pink'
-      })
-      $('.wedB').css({
-        background: 'pink'
-      })
-    } else if (week == 4) {
-      $('.thu').css({
-        border: '1px solid pink'
-      })
-      $('.thuB').css({
-        background: 'pink'
-      })
-      str = '今天是星期四'
-    } else if (week == 5) {
-      str = '今天是星期五'
-      $('.fri').css({
-        border: '1px solid pink'
-      })
-      $('.friB').css({
-        background: 'pink'
-      })
-    } else if (week == 6) {
-      str = '今天是星期六'
-    }
+
   </script>
 </body>
 
